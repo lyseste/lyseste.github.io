@@ -1,0 +1,282 @@
+:root {
+        --bg: rgb(30, 30, 30);
+        --highlight: rgba(105, 105, 105);
+        --panel: #111827;
+        --muted: #94a3b8;
+        --text: #e5e7eb;
+        --border: #494949;
+      }
+
+body {
+    color: var(--text);
+    background-color: var(--bg);
+    font-family: Consolas;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14pt;
+}
+
+header {
+    font-size: 60pt;
+    font-weight: bolder;
+}
+
+p {
+    font-family: Roboto;
+}
+
+.logo {
+    height: 120px;
+    padding-right: 20px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 950px;
+    padding-top: 200px;
+}
+
+.nav {
+    display: flex;
+    overflow: hidden;
+    justify-content: space-evenly;
+    padding-top: 50px;
+    width: 700px;
+    gap: 80px;
+}
+
+.nav button {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn {
+    appearance: none;
+    border: 1px solid #494949;
+    background: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 400;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav button:hover {
+  background-color: rgba(105, 105, 105, 0.502);
+  border-color: #696969;
+}
+
+
+
+
+/* GALLERY GRID */
+.db-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    width: 950px;
+    margin: auto;
+    padding: 50px;
+}
+
+/* CARD STYLING */
+.db-card {
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgb(50, 50, 50);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.db-card:hover {
+    transform: scale(1.02);
+    background: rgba(105, 105, 105, 0.502);
+}
+
+.thumb-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;   /* forces exact 16:9 shape */
+    overflow: hidden;       /* crops excess image */
+}
+
+.thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* crop without distorting */
+    display: block;
+}
+
+.db-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px;
+}
+
+.db-meta .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.db-meta #faicon {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.db-pages {
+    display: none;
+}
+
+#db-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: flex-start; /* top-align so modal scrolls down if content is tall */
+    overflow-y: auto; /* allow scrolling if content is too tall */
+    padding: 40px;
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background: var(--bg);
+    border-radius: 12px;
+    max-width: 1200px;
+    width: 100%;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+}
+
+#close-btn {
+    font-size: 24px;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Banner Image */
+.modal-banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-top-left-radius: 12px;  /* adds top rounding */
+    border-top-right-radius: 12px;
+    position: relative;
+}
+
+#modal-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ensures banner fills container */
+    display: block;
+}
+
+#icon-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* center the inner content */
+    margin-bottom: -50px;
+}
+
+.modal-icon {
+    width: 80%;             /* control content width */
+    max-width: 800px;
+    display: flex;
+    justify-content: left; /* center the inner content */
+}
+
+/* Icon on left, centered vertically between banner bottom and modal body */
+#modal-icon-img {
+    z-index: 2;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+/* Modal body content */
+#modal-body {
+    padding-bottom: 100px;
+    overflow-y: visible;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* center the inner content */
+}
+
+#modal-body .content-wrapper {
+    width: 80%;             /* control content width */
+    max-width: 800px;       /* optional: prevent it from getting too wide */
+    line-height: 1.6;
+    font-size: 14pt;
+}
+
+#modal-body .content-wrapper h1,
+#modal-body .content-wrapper h2,
+#modal-body .content-wrapper h3 {
+    margin-bottom: -1rem;
+}
+
+#modal-body .content-wrapper p {
+    margin-bottom: 2rem;
+}
+
+#modal-body hr {
+    border: none;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.25);
+    width: 100%;
+    margin: 4rem auto;
+}
+
+#modal-body .content-wrapper img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto 1rem;
+    border-radius: 3px;
+}
+
+
+
+
+
+.img-row {
+    display: flex;
+    gap: 50px;
+}
+
+.img-row figure {
+    flex: 1;
+    margin: 0;
+    text-align: center;
+}
+
+.img-row img {
+    max-width: 100%;
+}
+
+.img-row figcaption {
+    font-size: 12pt;
+    opacity: 0.5;
+}
+
+

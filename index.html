@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible'>
+    <title>Lys</title>
+    <link rel="icon" type="image/x-icon" href="https://ik.imagekit.io/lyseste/lyseste-site/lys-logomark.png?tr=w-50,h-50">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="https://ik.imagekit.io/lyseste/lyseste-site/lys-logotype.png">
+    </div>
+    <div class="nav">
+        <button type="button" class="btn" href="https://twitch.tv/lyseste"><i class="fa-brands fa-twitch"></i>Twitch</button>
+        <button type="button" class="btn" href="https://youtube.com/lyseste"><i class="fa-brands fa-youtube"></i>YouTube</button>
+        <button type="button" class="btn" href="https://twitter.com/lyseste"><i class="fa-brands fa-twitter"></i>Twitter</button>
+        <button type="button" class="btn" href="https://shop.lyseste.com"><i class="fa-solid fa-cart-shopping"></i>Shop</button>
+    </div>
+<div class="db-gallery" id="db-gallery"></div>
+
+<!-- POPUP MODAL -->
+<div id="db-modal">
+    <div class="modal-content">
+        <span id="close-btn">&times;</span>
+        <div class="modal-banner">
+            <img id="modal-banner-img" src="" alt="Banner">
+        </div>
+        <div id="icon-wrapper">
+            <div class="modal-icon">
+                <img id="modal-icon-img" src="" alt="Icon">
+            </div>
+        </div>
+        <div id="modal-body"></div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
