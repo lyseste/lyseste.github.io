@@ -1,0 +1,24 @@
+[
+  {
+    "id": "page1",
+    "title": "Smash Norge Rebrand",
+    "thumbnail": "https://ik.imagekit.io/lyseste/lyseste-site/page1/SmashNorge-banner-full.png",
+    "banner": "https://ik.imagekit.io/lyseste/lyseste-site/page1/SmashNorge-banner-twitter.png",
+    "icon": "https://ik.imagekit.io/lyseste/lyseste-site/page1/SmashNorge-Logomark.png",
+    "metadata": {
+      "tags": ["design"]
+    },
+    "contentFile": "pages/page1.md"
+  },
+  {
+    "id": "page2",
+    "title": "RainGG Brand",
+    "thumbnail": "https://ik.imagekit.io/lyseste/lyseste-site/page2/RainGG%20Smash%20banner7.png",
+    "banner": "https://ik.imagekit.io/lyseste/lyseste-site/page2/RainGG%20wallpaper2.png",
+    "icon": "https://ik.imagekit.io/lyseste/lyseste-site/page2/RainGG%20logomerke.png",
+    "metadata": {
+      "tags": ["design"]
+    },
+    "contentFile": "pages/page2.md"
+  }
+]
