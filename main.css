@@ -1,8 +1,7 @@
 :root {
         --bg: rgb(19, 19, 19);
-        --highlight: rgba(105, 105, 105);
-        --panel: #111827;
-        --muted: #94a3b8;
+        --highlight: rgb(30, 30, 30);
+        --hover: rgba(255, 255, 255, 0.08);
         --text: #e5e7eb;
         --border: #494949;
       }
@@ -78,7 +77,7 @@ p {
 
 /* Replace .nav button:hover with .nav .btn:hover */
 .nav .btn:hover {
-    background-color: rgba(105, 105, 105, 0.502);
+    background-color: var(--hover);
     border-color: #696969;
 }
 
@@ -102,13 +101,13 @@ p {
     cursor: pointer;
     border-radius: 12px;
     overflow: hidden;
-    background: rgb(50, 50, 50);
+    background: var(--highlight);
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .db-card:hover {
     transform: scale(1.02);
-    background: rgba(105, 105, 105, 0.502);
+    background: var(--hover);
 }
 
 .thumb-wrapper {
@@ -255,7 +254,7 @@ p {
 }
 
 #modal-body .content-wrapper p {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 #modal-body hr {
@@ -269,8 +268,7 @@ p {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 2rem auto 1rem;
-    border-radius: 3px;
+    margin: 1rem auto 1rem;
 }
 
 
@@ -290,6 +288,12 @@ p {
 
 .img-row img {
     max-width: 100%;
+    border-radius: 8px;
+
+}
+
+.img-row.no-round img {
+    border-radius: 0px;
 }
 
 .img-row figcaption {
@@ -337,5 +341,6 @@ p {
 
 .modal-header-top .tag-container {
     margin-top: 1rem;
+    margin-bottom: 2rem;
     gap: 10px;
 }

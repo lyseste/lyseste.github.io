@@ -14,7 +14,7 @@ Smash Norge is an interest organization founded on voluntary work and community 
 
 With the same base concept as the previous logo, the new logo features a more timely and modern design. The goal was to preserve the identity of Smash Norge, while also strengthening it with more saturated colors, stronger contrast, and thicker lines. The new logo has the benefit of being clearer and more recognizeable on all surfaces and in all sizes.
 
-<div class="img-row">
+<div class="img-row no-round">
     <figure>
         <img src="https://ik.imagekit.io/lyseste/lyseste-site/page1/smashnorge-logo-old.png" width="300">
         <figcaption>Previous logo from 2016-2022</figcaption>
@@ -31,7 +31,7 @@ With the same base concept as the previous logo, the new logo features a more ti
 
 The new symbol for Smash Norge has the same idea as the previous one, while strengthening it’s design. Based on the Super Smash Bros. symbol, the Smash Norge symbol has some adjustments to make the white lines separating the blue cross and the red fill thicker, and more visible in smaller sizes. The symbol should never be used without it’s colors, which are based on the norwegian flag law of 1898, with slight adjustments to the saturation and lightness to allow larger contrast.
 
-<div class="img-row">
+<div class="img-row no-round">
     <figure>
         <img src="https://ik.imagekit.io/lyseste/lyseste-site/page1/SmashNorge-Logomark.png?updatedAt=1765546864432" width="120">
         <figcaption>Smash Norge symbol 2022</figcaption>
@@ -52,7 +52,7 @@ A more presentable typeface was chosen for the logo. The typeface is Archivo, wi
 
 The logo should always have the same spacing between symbol and type, while also retaining a good amount of space from other logos or the edges of the document.
 
-<div class="img-row">
+<div class="img-row no-round">
     <figure>
         <img src="https://ik.imagekit.io/lyseste/lyseste-site/page1/SN-logo-spacing.png?updatedAt=1765546894944" width="500">
         <figcaption>Guidelines for spacing logo</figcaption>

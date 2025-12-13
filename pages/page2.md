@@ -16,7 +16,7 @@ For this project I have designed two symbols, paired with their own logotype, a 
 
 The RainGG icon comes in two variants, a circle variant, and a hexagon variant. The hexagon represents the “shine”, an recurring icon in the Super Smash Bros. game series. The circle shaped icon is used in the default RainGG logo, while the shine-shaped icon is used to represent RainGG’s Smash Bros. production crew.
 
-<div class="img-row">
+<div class="img-row no-round">
     <figure>
         <img src="https://ik.imagekit.io/lyseste/lyseste-site/page2/RainGG%20logomerke.png?tr=h-150">
         <figcaption>RainGG symbol</figcaption>
@@ -31,7 +31,7 @@ The RainGG icon comes in two variants, a circle variant, and a hexagon variant. 
 
 The full logotype consists of the symbol paired with a wordmark. RainGG is capitalized in the Roboto font, and the GG is boxed on a second line. Using the open space next to the boxed GG, I also added the word Smash to the RainGG Smash variant. While the logo design has done a great job at building RainGG’s brand over the years, I believe the typography needs a redesign to fit with today’s modern design standard.
 
-<div class="img-row">
+<div class="img-row no-round">
     <figure>
         <img src="https://ik.imagekit.io/lyseste/lyseste-site/page2/RainGG%20logotype.png?tr=h-100">
         <figcaption>RainGG logo</figcaption>
