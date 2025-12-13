@@ -47,15 +47,22 @@ p {
     padding-top: 50px;
     width: 700px;
     gap: 80px;
+    
 }
 
-.nav button {
+/* Replace .nav button with .nav .btn */
+.nav .btn {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;     /* keep icons aligned */
     gap: 8px;
+
+    text-decoration: none;   /* remove underline */
+    color: white;            /* prevent default link color */
 }
 
+/* This replaces the .btn button styling */
 .btn {
     appearance: none;
     border: 1px solid #494949;
@@ -65,13 +72,17 @@ p {
     padding: 10px;
     border-radius: 8px;
     font-weight: 400;
+    font-size: 11pt;
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.nav button:hover {
-  background-color: rgba(105, 105, 105, 0.502);
-  border-color: #696969;
+/* Replace .nav button:hover with .nav .btn:hover */
+.nav .btn:hover {
+    background-color: rgba(105, 105, 105, 0.502);
+    border-color: #696969;
 }
+
+
 
 
 
