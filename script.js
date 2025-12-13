@@ -4,10 +4,50 @@ async function loadDatabase() {
 
     const gallery = document.getElementById("db-gallery");
 
+    function hashToHSL(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    // Notion-like: soft pastel hues, low saturation
+    const h = Math.abs(hash) % 360;
+    const s = 40;      // pastel saturation
+    const l = 85;      // lightness
+
+    return `hsl(${h}, ${s}%, ${l}%)`;
+}
+
+function applyAutoTagColors() {
+    document.querySelectorAll(".tag.auto-color").forEach(tag => {
+        const tagName = tag.textContent.trim();
+        const className = tagName.replace(/\s+/g, '');
+
+        // If manual override exists, skip
+        const computed = getComputedStyle(tag);
+        const isManual =
+            computed.backgroundColor !== 'rgb(238, 238, 238)' && // default-bg
+            computed.backgroundColor !== 'rgb(0, 0, 0)' &&
+            !computed.backgroundColor.includes("rgba(0, 0, 0, 0)");
+
+        if (isManual) return;
+
+        // Apply automatic pastel color
+        tag.style.backgroundColor = hashToHSL(tagName);
+
+        // Automatic readable text color
+        tag.style.color = "hsl(0, 0%, 20%)";
+    });
+}
+
+
     pages.forEach(page => {
         const card = document.createElement("div");
         card.className = "db-card";
         card.dataset.page = page.id;
+        const tagHTML = page.tags
+            .map(tag => `<span class="tag tag-small auto-color ${tag.replace(/\s+/g, '')}">${tag}</span>`)
+            .join("");
 
         card.innerHTML = `
             <div class="thumb-wrapper">
@@ -16,6 +56,7 @@ async function loadDatabase() {
             <div class="db-meta">
                 <img src="${page.icon}" class="icon">
                 <span class="title">${page.title}</span>
+                <div class="tag-container">${tagHTML}</div>
             </div>
         `;
 
@@ -26,9 +67,16 @@ async function loadDatabase() {
             const md = await fetch(page.contentFile).then(r => r.text());
             const html = marked.parse(md);
 
+            const tagsHTML = page.tags
+                .map(tag => `<span class="tag tag-large auto-color ${tag.replace(/\s+/g, '')}">${tag}</span>`)
+                .join("");
+
             document.getElementById("modal-body").innerHTML = `          
                     <div class="content-wrapper">  
-                        <h1>${page.title}</h1>
+                            <div class="modal-header-top">                            
+                                <h1>${page.title}</h1>
+                                <div class="tag-container">${tagsHTML}</div>
+                            </div>
                         ${html}
                     </div>
             `;
@@ -39,7 +87,13 @@ async function loadDatabase() {
             document.getElementById("modal-icon-img").src = page.icon;
             
             document.getElementById("db-modal").style.display = "flex";
+
+            applyAutoTagColors();
+
         });
+
+        applyAutoTagColors();
+
     });
 }
 

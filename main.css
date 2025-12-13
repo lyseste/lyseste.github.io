@@ -1,5 +1,5 @@
 :root {
-        --bg: rgb(30, 30, 30);
+        --bg: rgb(19, 19, 19);
         --highlight: rgba(105, 105, 105);
         --panel: #111827;
         --muted: #94a3b8;
@@ -37,7 +37,7 @@ p {
     flex-direction: row;
     align-items: center;
     width: 950px;
-    padding-top: 200px;
+    padding-top: 100px;
 }
 
 .nav {
@@ -126,13 +126,18 @@ p {
 }
 
 .db-meta {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    row-gap: 8px;
     align-items: center;
-    gap: 8px;
-    padding: 14px;
+    padding: 12px;
 }
 
 .db-meta .icon {
+    grid-column: 1;
+    grid-row: 1;
     width: 20px;
     height: 20px;
 }
@@ -144,6 +149,8 @@ p {
 }
 
 .title {
+    grid-column: 2;
+    grid-row: 1;
     font-size: 16px;
     font-weight: 600;
 }
@@ -291,3 +298,44 @@ p {
 }
 
 
+/* ---------- TAG COLORS ---------- */
+.tag {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Default generic color */
+.tag.default { background-color: #e2e2e2; color: #4a4a4a; }
+
+/* Color map */
+/*.tag.Design       { background-color: #FFD7D5; color: #A63A37; }*/
+
+
+/* ---------- SIZES ---------- */
+.tag-small {
+    font-size: 10px;
+    padding: 3px 6px;
+}
+
+.tag-large {
+    font-size: 14px;
+    padding: 3px 12px;
+}
+
+.tag-container {
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+
+.modal-header-top .tag-container {
+    margin-top: 1rem;
+    gap: 10px;
+}
