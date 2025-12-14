@@ -10,9 +10,8 @@ async function loadDatabase() {
         hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
 
-    // Notion-like: soft pastel hues, low saturation
     const h = Math.abs(hash) % 360;
-    const s = 40;      // pastel saturation
+    const s = 40;      // saturation
     const l = 85;      // lightness
 
     return `hsl(${h}, ${s}%, ${l}%)`;
@@ -23,19 +22,16 @@ function applyAutoTagColors() {
         const tagName = tag.textContent.trim();
         const className = tagName.replace(/\s+/g, '');
 
-        // If manual override exists, skip
         const computed = getComputedStyle(tag);
         const isManual =
-            computed.backgroundColor !== 'rgb(238, 238, 238)' && // default-bg
+            computed.backgroundColor !== 'rgb(238, 238, 238)' &&
             computed.backgroundColor !== 'rgb(0, 0, 0)' &&
             !computed.backgroundColor.includes("rgba(0, 0, 0, 0)");
 
         if (isManual) return;
 
-        // Apply automatic pastel color
         tag.style.backgroundColor = hashToHSL(tagName);
 
-        // Automatic readable text color
         tag.style.color = "hsl(0, 0%, 20%)";
     });
 }
@@ -92,6 +88,7 @@ function applyAutoTagColors() {
 
             applyAutoTagColors();
 
+            history.pushState({ modalOpen: true, pageId: page.id }, "", ``);
         });
 
         applyAutoTagColors();
@@ -99,16 +96,31 @@ function applyAutoTagColors() {
     });
 }
 
-// Close modal
-document.getElementById("close-btn").onclick = () => {
-    document.getElementById("db-modal").style.display = "none";
+
+function closeModal() {
+    const modal = document.getElementById("db-modal");
+    modal.style.display = "none";
     document.body.classList.remove("modal-open");
+
+    history.replaceState({}, "", window.location.pathname);
+}
+
+document.getElementById("close-btn").onclick = () => {
+    closeModal();
 };
+
 
 window.onclick = (e) => {
     if (e.target.id === "db-modal") {
-        document.getElementById("db-modal").style.display = "none";
+        closeModal();
     }
 };
+
+window.addEventListener("popstate", (event) => {
+    const modal = document.getElementById("db-modal");
+    if (modal.style.display === "flex") {
+        closeModal();
+    }
+});
 
 loadDatabase();
