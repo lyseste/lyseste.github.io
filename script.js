@@ -70,6 +70,8 @@ function applyAutoTagColors() {
             const tagsHTML = page.tags
                 .map(tag => `<span class="tag tag-large auto-color ${tag.replace(/\s+/g, '')}">${tag}</span>`)
                 .join("");
+            
+            document.body.classList.add("modal-open");
 
             document.getElementById("modal-body").innerHTML = `          
                     <div class="content-wrapper">  
@@ -100,6 +102,7 @@ function applyAutoTagColors() {
 // Close modal
 document.getElementById("close-btn").onclick = () => {
     document.getElementById("db-modal").style.display = "none";
+    document.body.classList.remove("modal-open");
 };
 
 window.onclick = (e) => {

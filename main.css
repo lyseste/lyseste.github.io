@@ -17,6 +17,11 @@ body {
     font-size: 14pt;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 header {
     font-size: 60pt;
     font-weight: bolder;
@@ -35,33 +40,33 @@ p {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 950px;
-    padding-top: 100px;
+    width: 100%;
+    max-width: 950px;
+    padding: 100px 20px 0;
 }
 
-.nav {
-    display: flex;
+.socials {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     overflow: hidden;
-    justify-content: space-evenly;
+    justify-content: center;
     padding-top: 50px;
-    width: 700px;
-    gap: 80px;
-    
+    width: 100%;
+    max-width: 800px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-/* Replace .nav button with .nav .btn */
-.nav .btn {
-    flex: 1;
+.socials .btn {
+    width: 100px;
     display: flex;
     justify-content: center;
-    align-items: center;     /* keep icons aligned */
+    align-items: center;
     gap: 8px;
-
-    text-decoration: none;   /* remove underline */
-    color: white;            /* prevent default link color */
+    text-decoration: none;
+    color: var(--text);
 }
 
-/* This replaces the .btn button styling */
 .btn {
     appearance: none;
     border: 1px solid #494949;
@@ -75,28 +80,21 @@ p {
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-/* Replace .nav button:hover with .nav .btn:hover */
-.nav .btn:hover {
+.socials .btn:hover {
     background-color: var(--hover);
     border-color: #696969;
 }
-
-
-
-
-
 
 /* GALLERY GRID */
 .db-gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
-    width: 950px;
-    margin: auto;
+    width: 100%;
+    max-width: 950px;
     padding: 50px;
 }
 
-/* CARD STYLING */
 .db-card {
     cursor: pointer;
     border-radius: 12px;
@@ -105,22 +103,30 @@ p {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.db-card:hover {
-    transform: scale(1.02);
-    background: var(--hover);
+@media (hover: hover) {
+    .db-card:hover {
+        transform: scale(1.02);
+        background: var(--hover);
+    }
+}
+
+@media (hover: none) {
+    .db-card {
+        transform: none;
+    }
 }
 
 .thumb-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;   /* forces exact 16:9 shape */
-    overflow: hidden;       /* crops excess image */
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
 }
 
 .thumb {
     width: 100%;
     height: 100%;
-    object-fit: cover;      /* crop without distorting */
+    object-fit: cover;
     display: block;
 }
 
@@ -165,11 +171,16 @@ p {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
     justify-content: center;
-    align-items: flex-start; /* top-align so modal scrolls down if content is tall */
-    overflow-y: auto; /* allow scrolling if content is too tall */
+    align-items: flex-start;
+    overflow: auto;
     padding: 40px;
     z-index: 1000;
 }
+
+body.modal-open {
+    overflow: hidden;
+}
+
 
 .modal-content {
     position: relative;
@@ -182,21 +193,47 @@ p {
     flex-direction: column;
 }
 
-#close-btn {
-    font-size: 24px;
+.modal-close-layer {
     position: absolute;
-    top: 12px;
-    right: 16px;
-    cursor: pointer;
-    z-index: 10;
+    top: 16px;
+    right: 0px;
+    z-index: 20;
+
+    height: 0;
+    display: flex;
+    justify-content: flex-end;
+
+    pointer-events: none;
 }
 
-/* Banner Image */
+#close-btn {
+    pointer-events: auto;
+    margin-right: 16px;
+
+    font-size: 28px;
+    cursor: pointer;
+
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    user-select: none;
+}
+
+#close-btn:active {
+    transform: scale(0.95);
+}
+
 .modal-banner {
     width: 100%;
     height: 300px;
     overflow: hidden;
-    border-top-left-radius: 12px;  /* adds top rounding */
+    border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     position: relative;
 }
@@ -204,25 +241,24 @@ p {
 #modal-banner-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* ensures banner fills container */
+    object-fit: cover;
     display: block;
 }
 
 #icon-wrapper {
     width: 100%;
     display: flex;
-    justify-content: center; /* center the inner content */
+    justify-content: center;
     margin-bottom: -50px;
 }
 
 .modal-icon {
-    width: 80%;             /* control content width */
+    width: 80%;
     max-width: 800px;
     display: flex;
-    justify-content: left; /* center the inner content */
+    justify-content: left;
 }
 
-/* Icon on left, centered vertically between banner bottom and modal body */
 #modal-icon-img {
     z-index: 2;
     width: 100px;
@@ -231,18 +267,17 @@ p {
     transform: translateY(-50%);
 }
 
-/* Modal body content */
 #modal-body {
     padding-bottom: 100px;
     overflow-y: visible;
     width: 100%;
     display: flex;
-    justify-content: center; /* center the inner content */
+    justify-content: center;
 }
 
 #modal-body .content-wrapper {
-    width: 80%;             /* control content width */
-    max-width: 800px;       /* optional: prevent it from getting too wide */
+    width: 80%;
+    max-width: 800px;
     line-height: 1.6;
     font-size: 14pt;
 }
@@ -261,7 +296,7 @@ p {
     border: none;
     border-top: 1.5px solid rgba(255, 255, 255, 0.25);
     width: 100%;
-    margin: 4rem auto;
+    margin: 3rem auto;
 }
 
 #modal-body .content-wrapper img {
@@ -270,10 +305,6 @@ p {
     display: block;
     margin: 1rem auto 1rem;
 }
-
-
-
-
 
 .img-row {
     display: flex;
@@ -301,8 +332,6 @@ p {
     opacity: 0.5;
 }
 
-
-/* ---------- TAG COLORS ---------- */
 .tag {
     display: inline-block;
     padding: 3px 8px;
@@ -314,11 +343,9 @@ p {
 /* Default generic color */
 .tag.default { background-color: #e2e2e2; color: #4a4a4a; }
 
-/* Color map */
-/*.tag.Design       { background-color: #FFD7D5; color: #A63A37; }*/
+/* Custom color map */
+.tag.Design       { background-color: #FFD7D5; color: #A63A37; }
 
-
-/* ---------- SIZES ---------- */
 .tag-small {
     font-size: 10px;
     padding: 3px 6px;
@@ -338,9 +365,96 @@ p {
     grid-row: 2;
 }
 
-
 .modal-header-top .tag-container {
     margin-top: 1rem;
     margin-bottom: 2rem;
     gap: 10px;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+
+    body {
+        font-size: 11pt;
+    }
+
+    header {
+        font-size: 42pt;
+    }
+
+    .logo {
+        height: 80px;
+        padding-right: 12px;
+    }
+
+    .header {
+        padding-top: 40px;
+        flex-direction: row;
+    }
+
+    .socials {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding-top: 30px;
+    }
+
+    .socials .btn {
+        width: auto;
+    }
+
+    .db-gallery {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+
+    #db-modal {
+        padding: 0;
+    }
+
+    .modal-close-layer {
+        position: sticky;
+        top: 16px;
+        height: 0;
+        justify-content: flex-end;
+    }
+
+    #close-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 30px;
+        margin-right: 16px;
+    }
+
+    .modal-content {
+        width: 100vw;
+        min-height: 100vh;
+        max-width: none;
+        border-radius: 0;
+    }
+
+    .modal-banner {
+        border-radius: 0;
+        height: 120px;
+    }
+
+    #modal-icon-img {
+        width: 72px;
+        height: 72px;
+    }
+
+    #modal-body .content-wrapper {
+        width: 80%;
+        font-size: 11pt;
+    }
+
+    #modal-body hr {
+        margin: 2rem auto;
+        width: 100%;
+    }
+
+    .img-row {
+        flex-direction: column;
+        gap: 24px;
+    }
 }
