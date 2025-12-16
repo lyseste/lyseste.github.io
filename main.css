@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
 :root {
         --bg: rgb(19, 19, 19);
         --highlight: rgb(30, 30, 30);
@@ -9,7 +11,7 @@
 body {
     color: var(--text);
     background-color: var(--bg);
-    font-family: Consolas;
+    font-family: "Inconsolata", sans-serif;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -24,11 +26,16 @@ html, body {
 
 header {
     font-size: 60pt;
-    font-weight: bolder;
+    font-weight: 600;
+}
+
+h1 {
+    font-weight: 900;
 }
 
 p {
-    font-family: Roboto;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 400;
 }
 
 .logo {
@@ -75,8 +82,8 @@ p {
     cursor: pointer;
     padding: 10px;
     border-radius: 8px;
-    font-weight: 400;
-    font-size: 11pt;
+    font-weight: 500;
+    font-size: 12pt;
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
@@ -156,7 +163,7 @@ p {
 .title {
     grid-column: 2;
     grid-row: 1;
-    font-size: 16px;
+    font-size: 16pt;
     font-weight: 600;
 }
 
@@ -315,6 +322,7 @@ body.modal-open {
     flex: 1;
     margin: 0;
     text-align: center;
+    font-family: "Source Sans 3", sans-serif;
 }
 
 .img-row img {
@@ -336,7 +344,7 @@ body.modal-open {
     display: inline-block;
     padding: 3px 8px;
     border-radius: 6px;
-    font-weight: 500;
+    font-weight: 400;
     white-space: nowrap;
 }
 
@@ -347,12 +355,12 @@ body.modal-open {
 .tag.Design       { background-color: #FFD7D5; color: #A63A37; }
 
 .tag-small {
-    font-size: 10px;
-    padding: 3px 6px;
+    font-size: 9pt;
+    padding: 5px 8px;
 }
 
 .tag-large {
-    font-size: 14px;
+    font-size: 11pt;
     padding: 3px 12px;
 }
 
