@@ -81,10 +81,11 @@ function applyAutoTagColors() {
 
             const bannerSrc = page.banner && page.banner.trim() !== "" ? page.banner : page.thumbnail;
             document.getElementById("modal-banner-img").src = bannerSrc;
-            
             document.getElementById("modal-icon-img").src = page.icon;
             
-            document.getElementById("db-modal").style.display = "flex";
+            const modal = document.getElementById("db-modal");
+            modal.style.display = "flex";
+            modal.scrollTop = 0;
 
             applyAutoTagColors();
 
