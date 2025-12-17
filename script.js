@@ -1,6 +1,7 @@
 async function loadDatabase() {
     const res = await fetch("pages.json");
     const pages = await res.json();
+    pages.sort((a, b) => (a.index ?? 0) - (b.index ?? 0));
 
     const gallery = document.getElementById("db-gallery");
 
@@ -51,7 +52,10 @@ function applyAutoTagColors() {
             </div>
             <div class="db-meta">
                 <img src="${page.icon}" class="icon">
-                <span class="title">${page.title}</span>
+                <div class="title-row">
+                    <span class="title">${page.title}</span>
+                    <span class="date">${page.date}</span>
+                </div>
                 <div class="tag-container">${tagHTML}</div>
             </div>
         `;
@@ -73,6 +77,7 @@ function applyAutoTagColors() {
                     <div class="content-wrapper">  
                             <div class="modal-header-top">                            
                                 <h1>${page.title}</h1>
+                                <div class="modal-date">${page.date}</div>
                                 <div class="tag-container">${tagsHTML}</div>
                             </div>
                         ${html}

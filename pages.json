@@ -1,7 +1,9 @@
 [
   {
     "id": "smashnorge",
+    "index": 1,
     "title": "Smash Norge Rebrand",
+    "date": "June 7, 2022",
     "thumbnail": "https://ik.imagekit.io/lyseste/lyseste-site/page1/SmashNorge-banner-full.png",
     "banner": "https://ik.imagekit.io/lyseste/lyseste-site/page1/SmashNorge-banner-twitter.png",
     "icon": "https://ik.imagekit.io/lyseste/lyseste-site/page1/SmashNorge-Logomark.png",
@@ -10,7 +12,9 @@
   },
   {
     "id": "raingg",
+    "index": 1,
     "title": "RainGG Brand",
+    "date": "March 28, 2019",
     "thumbnail": "https://ik.imagekit.io/lyseste/lyseste-site/page2/RainGG%20Smash%20banner7.png",
     "banner": "https://ik.imagekit.io/lyseste/lyseste-site/page2/RainGG%20wallpaper2.png",
     "icon": "https://ik.imagekit.io/lyseste/lyseste-site/page2/RainGG%20logomerke.png",

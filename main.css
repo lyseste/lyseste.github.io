@@ -30,6 +30,7 @@ header {
 }
 
 h1 {
+    font-size: 28pt;
     font-weight: 900;
 }
 
@@ -54,9 +55,9 @@ p {
 
 .socials {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, max-content);
     overflow: hidden;
-    justify-content: center;
+    justify-content: space-between;
     padding-top: 50px;
     width: 100%;
     max-width: 800px;
@@ -171,6 +172,22 @@ p {
     display: none;
 }
 
+.title-row {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.date {
+    font-size: 9pt;
+    opacity: 0.6;
+    white-space: nowrap;
+}
+
+
 #db-modal {
     display: none;
     position: fixed;
@@ -205,30 +222,24 @@ body.modal-open {
     top: 16px;
     right: 0px;
     z-index: 20;
-
     height: 0;
     display: flex;
     justify-content: flex-end;
-
     pointer-events: none;
 }
 
 #close-btn {
     pointer-events: auto;
     margin-right: 16px;
-
     font-size: 28px;
     cursor: pointer;
-
     background: rgba(0, 0, 0, 0.5);
     width: 40px;
     height: 40px;
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     user-select: none;
 }
 
@@ -273,6 +284,14 @@ body.modal-open {
     border-radius: 50%;
     transform: translateY(-50%);
 }
+
+.modal-date {
+    font-size: 12pt;
+    opacity: 0.6;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
 
 #modal-body {
     padding-bottom: 100px;
@@ -374,8 +393,8 @@ body.modal-open {
 }
 
 .modal-header-top .tag-container {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     gap: 10px;
 }
 
