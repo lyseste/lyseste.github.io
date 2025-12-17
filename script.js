@@ -1,7 +1,12 @@
 async function loadDatabase() {
     const res = await fetch("pages.json");
     const pages = await res.json();
-    pages.sort((a, b) => (a.index ?? 0) - (b.index ?? 0));
+    pages.sort((a, b) => {
+        if (a.index !== b.index) {
+            return b.index - a.index;
+        }
+        return pages.indexOf(b) - pages.indexOf(a);
+    });
 
     const gallery = document.getElementById("db-gallery");
 
