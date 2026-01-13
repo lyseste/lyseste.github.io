@@ -30,7 +30,6 @@ header {
 }
 
 h1 {
-    font-size: 28pt;
     font-weight: 900;
 }
 
@@ -484,4 +483,5 @@ body.modal-open {
         flex-direction: column;
         gap: 24px;
     }
+
 }
