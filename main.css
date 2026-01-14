@@ -38,6 +38,19 @@ p {
     font-weight: 400;
 }
 
+a:link {
+    color: #9c71ff;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #c95de4;
+}
+
+a:hover {
+    color: #c79cff;
+}
+
 .logo {
     height: 120px;
     padding-right: 20px;
@@ -485,3 +498,4 @@ body.modal-open {
     }
 
 }
+
